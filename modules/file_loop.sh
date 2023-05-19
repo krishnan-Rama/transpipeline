@@ -7,3 +7,4 @@ echo ${filename[1]}
 
 done < file_list.txt
 
+#goodmorning
