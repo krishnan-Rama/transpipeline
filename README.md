@@ -3,7 +3,7 @@ A slurm pipeline that transforms your transcriptome data into actionable insight
 
 ## Master Pipeline Overview
 
-This master pipeline serves as a comprehensive workflow for transcriptome processing, from the initial transfer of raw data to the extraction of annotations from UniProt. The script is organized into multiple steps, each encompassing a specific procedure in the pipeline. These procedures include data quality checks, trimming, taxonomic classification, assembly, annotation, and evaluation.
+This master pipeline serves as a comprehensive workflow for transcriptome processing, from the initial transfer of raw data to the extraction of annotations. The script is organized into multiple steps, each encompassing a specific procedure in the pipeline. These procedures include data quality checks, trimming, taxonomic classification, assembly, annotation, and evaluation.
 
 ### Significance of the Pipeline
 
