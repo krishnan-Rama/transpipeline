@@ -1,5 +1,5 @@
 # transpipeline
-A slurm pipeline that transforms your transcriptome data into actionable insights in a seamless flow!" 
+A slurm pipeline that transforms your transcriptome data into actionable insights in a seamless flow!
 
 ## Master Pipeline Overview
 
