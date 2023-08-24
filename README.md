@@ -29,33 +29,47 @@ Each step in the master pipeline script invokes an external bash script (found i
 
 ## Steps of the Master Pipeline
 
-1. **Data Transfer**: Raw data files are copied from the source directory to a designated raw directory.
+1. **Data Transfer**: Raw data files are copied from the source directory to a designated raw directory.  
+   Script: Not specified in provided data.
 
-2. **FastQC on Raw Data**: Quality control checks are performed on the raw data to assess its initial quality.
+2. **FastQC on Raw Data**: Quality control checks are performed on the raw data to assess its initial quality.  
+   Script: `1-fastqc_array.sh`
 
-3. **Fastp Trimming**: Adapters and low-quality bases are trimmed from the raw data.
+3. **Fastp Trimming**: Adapters and low-quality bases are trimmed from the raw data.  
+   Script: `2A-fastp_array.sh`
 
-4. **FastQC on Trimmed Data**: Quality control checks post-trimming ensure data integrity.
+4. **FastQC on Trimmed Data**: Quality control checks post-trimming ensure data integrity.  
+   Script: `1-fastqc_array.sh` (Reused for trimmed data)
 
-5. **Kraken2 Classification**: The trimmed data undergoes taxonomic classification using Kraken2.
+5. **Kraken2 Classification**: The trimmed data undergoes taxonomic classification using Kraken2.  
+   Script: `2B-kraken2.sh`
 
-6. **Assembly**: Transcriptome assembly is executed using Trinity.
+6. **Assembly**: Transcriptome assembly is executed using Trinity.  
+   Script: `3-trinity_assembly.sh`
 
-7. **Evigene Annotation**: The assembled transcriptome is annotated using the evigene tool.
+7. **Evigene Annotation**: The assembled transcriptome is annotated using the evigene tool.  
+   Script: `4-evigene.sh`
 
-8. **BUSCO Analysis**: Completeness of the assembled transcriptome is assessed using BUSCO.
+8. **BUSCO Analysis**: Completeness of the assembled transcriptome is assessed using BUSCO.  
+   Script: `5-busco_singularity.sh`
 
-9. **Trinity Mapping**: Transcriptome data is further processed using Trinity tools for mapping.
+9. **Trinity Mapping**: Transcriptome data is further processed using Trinity tools for mapping.  
+   Script: `6-trinity-mapping.sh`
 
-10. **Summary Stats and Differential Expression**: Post-processing analysis of the mapped data.
+10. **Summary Stats and Differential Expression**: Post-processing analysis of the mapped data.  
+   Script: `7-rsem-post-reassemble.sh`
 
-11. **MultiQC Report**: A comprehensive report is generated to summarize results from the previous steps.
+11. **MultiQC Report**: A comprehensive report is generated to summarize results from the previous steps.  
+   Script: `8-multiqc.sh`
 
-12. **Blastdb Configuration**: Blast databases are downloaded and configured.
+12. **Blastdb Configuration**: Blast databases are downloaded and configured.  
+   Script: `9-blastdb.sh`
 
-13. **Multispecies Blast**: A blastp search is performed against a multispecies database.
+13. **Multispecies Blast**: A blastp search is performed against a multispecies database.  
+   Script: `10-blast.sh`
 
-14. **Annotation Extraction from UniProt**: Annotations are extracted based on blast search results from UniProt.
+14. **Annotation Extraction from UniProt**: Annotations are extracted based on blast search results from UniProt.  
+   Script: `11-upimapi.sh`
 
 ### Concluding Note
 
