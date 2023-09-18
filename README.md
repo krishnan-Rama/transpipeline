@@ -43,6 +43,7 @@ Each step in the master pipeline script invokes an external bash script (found i
 
 5. **Kraken2 Classification**: The trimmed data undergoes taxonomic classification using Kraken2.  
    Script: `kraken.sh`
+
 6. **Kraken2 Sub-classification**: The Kraken2 results containing taxonomy IDs undergo further classification to exclude/include user-specified taxonomy IDs using `extract_kraken_reads.py`.
    Script: `2B-kraken2.sh` 
 
