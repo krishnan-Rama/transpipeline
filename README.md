@@ -30,7 +30,7 @@ Each step in the master pipeline script invokes an external bash script (found i
 ## Steps of the Master Pipeline
 
 1. **Data Transfer**: Raw data files are copied from the source directory to a designated raw directory.
-   Script: `0-rawdata-preprocessing.sh`.
+   Script: `0-rawdata-preprocessing.sh`
 
 2. **FastQC on Raw Data**: Quality control checks are performed on the raw data to assess its initial quality.  
    Script: `1-fastqc_array.sh`
