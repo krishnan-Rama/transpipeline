@@ -32,19 +32,19 @@ Each step in the master pipeline script invokes an external bash script (found i
 1. **Data Transfer**: Raw data files are copied from the source directory to a designated raw directory.
    Script: `0-rawdata-preprocessing.sh`
 
-2. **FastQC on Raw Data**: Quality control checks are performed on the raw data to assess its initial quality.  
+3. **FastQC on Raw Data**: Quality control checks are performed on the raw data to assess its initial quality.  
    Script: `1-fastqc_array.sh`
 
-3. **Fastp Trimming**: Adapters and low-quality bases are trimmed from the raw data.  
+4. **Fastp Trimming**: Adapters and low-quality bases are trimmed from the raw data.  
    Script: `2A-fastp_array.sh`
 
-4. **FastQC on Trimmed Data**: Quality control checks post-trimming ensure data integrity.  
+5. **FastQC on Trimmed Data**: Quality control checks post-trimming ensure data integrity.  
    Script: `1-fastqc_array.sh` (Reused for trimmed data)
 
-5. **Kraken2 Classification**: The trimmed data undergoes taxonomic classification using Kraken2.  
+6. **Kraken2 Classification**: The trimmed data undergoes taxonomic classification using Kraken2.  
    Script: `kraken.sh`
 
-6. **Kraken2 Sub-classification**: The Kraken2 results containing taxonomy IDs undergo further classification to exclude/include user-specified taxonomy IDs using `extract_kraken_reads.py`.
+7. **Kraken2 Sub-classification**: The Kraken2 results containing taxonomy IDs undergo further classification to exclude/include user-specified taxonomy IDs using `extract_kraken_reads.py`.
     Script: `2B-kraken2.sh` 
 
 9. **Assembly**: Transcriptome assembly is executed using Trinity.  
