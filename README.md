@@ -27,7 +27,7 @@ Each step in the master pipeline script invokes an external bash script (found i
 
 - **Logging**: The error and output logs for each step are captured separately, simplifying the debugging process.
 
-## Steps of the Master Pipeline (`master_transcript_pipeline.sh`)
+## Steps of the Master Pipeline
 
 1. **Data Transfer**: Raw data files are copied from the source directory to a designated raw directory.  
    Script: `0-rawdata-preprocessing.sh`
