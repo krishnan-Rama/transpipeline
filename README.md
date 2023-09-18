@@ -45,33 +45,33 @@ Each step in the master pipeline script invokes an external bash script (found i
    Script: `kraken.sh`
 
 6. **Kraken2 Sub-classification**: The Kraken2 results containing taxonomy IDs undergo further classification to exclude/include user-specified taxonomy IDs using `extract_kraken_reads.py`.
-     Script: `2B-kraken2.sh` 
+    Script: `2B-kraken2.sh` 
 
-7. **Assembly**: Transcriptome assembly is executed using Trinity.  
+9. **Assembly**: Transcriptome assembly is executed using Trinity.  
    Script: `3-trinity_assembly.sh`
 
-8. **Evigene Annotation**: The assembled transcriptome is annotated using the evigene tool.  
+10. **Evigene Annotation**: The assembled transcriptome is annotated using the evigene tool.  
    Script: `4-evigene.sh`
 
-9. **BUSCO Analysis**: Completeness of the assembled transcriptome is assessed using BUSCO.  
+11. **BUSCO Analysis**: Completeness of the assembled transcriptome is assessed using BUSCO.  
    Script: `5-busco_singularity.sh`
 
-10. **Trinity Mapping**: Transcriptome data is further processed using Trinity tools for mapping.  
+12. **Trinity Mapping**: Transcriptome data is further processed using Trinity tools for mapping.  
    Script: `6-trinity-mapping.sh`
 
-11. **Summary Stats and Differential Expression**: Post-processing analysis of the mapped data.  
+13. **Summary Stats and Differential Expression**: Post-processing analysis of the mapped data.  
    Script: `7-rsem-post-reassemble.sh`
 
-12. **MultiQC Report**: A comprehensive report is generated to summarize results from the previous steps.  
+14. **MultiQC Report**: A comprehensive report is generated to summarize results from the previous steps.  
    Script: `8-multiqc.sh`
 
-13. **Blastdb Configuration**: Blast databases are downloaded and configured.  
+15. **Blastdb Configuration**: Blast databases are downloaded and configured.  
    Script: `9-blastdb.sh`
 
-14. **Multispecies Blast**: A blastp search is performed against a multispecies database.  
+16. **Multispecies Blast**: A blastp search is performed against a multispecies database.  
    Script: `10-blast.sh`
 
-15. **Annotation Extraction from UniProt**: Annotations are extracted based on blast search results from UniProt.  
+17. **Annotation Extraction from UniProt**: Annotations are extracted based on blast search results from UniProt.  
    Script: `11-upimapi.sh`
 
 ### Concluding Note
