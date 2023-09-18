@@ -42,35 +42,41 @@ Each step in the master pipeline script invokes an external bash script (found i
    Script: `1-fastqc_array.sh` (Reused for trimmed data)
 
 5. **Kraken2 Classification**: The trimmed data undergoes taxonomic classification using Kraken2.  
-   Script: `2B-kraken2.sh`
+   Script: `kraken.sh`
+6. **Kraken2 Sub-classification**: The Kraken2 results containing taxonomy IDs undergo further classification to exclude/include user-specified taxonomy IDs using `extract_kraken_reads.py`.
+   Script: `2B-kraken2.sh` 
 
-6. **Assembly**: Transcriptome assembly is executed using Trinity.  
+8. **Assembly**: Transcriptome assembly is executed using Trinity.  
    Script: `3-trinity_assembly.sh`
 
-7. **Evigene Annotation**: The assembled transcriptome is annotated using the evigene tool.  
+9. **Evigene Annotation**: The assembled transcriptome is annotated using the evigene tool.  
    Script: `4-evigene.sh`
 
-8. **BUSCO Analysis**: Completeness of the assembled transcriptome is assessed using BUSCO.  
+10. **BUSCO Analysis**: Completeness of the assembled transcriptome is assessed using BUSCO.  
    Script: `5-busco_singularity.sh`
 
-9. **Trinity Mapping**: Transcriptome data is further processed using Trinity tools for mapping.  
+11. **Trinity Mapping**: Transcriptome data is further processed using Trinity tools for mapping.  
    Script: `6-trinity-mapping.sh`
 
-10. **Summary Stats and Differential Expression**: Post-processing analysis of the mapped data.  
+12. **Summary Stats and Differential Expression**: Post-processing analysis of the mapped data.  
    Script: `7-rsem-post-reassemble.sh`
 
-11. **MultiQC Report**: A comprehensive report is generated to summarize results from the previous steps.  
+13. **MultiQC Report**: A comprehensive report is generated to summarize results from the previous steps.  
    Script: `8-multiqc.sh`
 
-12. **Blastdb Configuration**: Blast databases are downloaded and configured.  
+14. **Blastdb Configuration**: Blast databases are downloaded and configured.  
    Script: `9-blastdb.sh`
 
-13. **Multispecies Blast**: A blastp search is performed against a multispecies database.  
+15. **Multispecies Blast**: A blastp search is performed against a multispecies database.  
    Script: `10-blast.sh`
 
-14. **Annotation Extraction from UniProt**: Annotations are extracted based on blast search results from UniProt.  
+16. **Annotation Extraction from UniProt**: Annotations are extracted based on blast search results from UniProt.  
    Script: `11-upimapi.sh`
 
 ### Concluding Note
 
 To successfully run this pipeline, ensure that all external bash scripts are present in the specified `${moduledir}` directory and that `config.parameters_all` is properly configured. Always refer to individual bash scripts and the configuration file for more detailed information or to modify specific behaviors of the pipeline.
+
+### Author Information
+
+Rama Krishnan - krishnanr1@cardiff.ac.uk
