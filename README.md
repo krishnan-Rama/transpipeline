@@ -1,7 +1,7 @@
 # transpipeline
 A slurm pipeline that transforms your transcriptome data into actionable insights in a seamless flow!
 
-## Master Pipeline Overview
+## Master Pipeline Overview (`master_transcript_pipeline.sh`)
 
 This master pipeline serves as a comprehensive workflow for transcriptome processing, from the initial transfer of raw data to the extraction of annotations. The script is organized into multiple steps, each encompassing a specific procedure in the pipeline. These procedures include data quality checks, trimming, taxonomic classification, assembly, annotation, and evaluation.
 
@@ -27,7 +27,7 @@ Each step in the master pipeline script invokes an external bash script (found i
 
 - **Logging**: The error and output logs for each step are captured separately, simplifying the debugging process.
 
-## Steps of the Master Pipeline
+## Steps of the Master Pipeline (`master_transcript_pipeline.sh`)
 
 1. **Data Transfer**: Raw data files are copied from the source directory to a designated raw directory.  
    Script: `0-rawdata-preprocessing.sh`
